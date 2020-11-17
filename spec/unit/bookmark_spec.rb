@@ -8,9 +8,15 @@ describe Bookmark do
     expect(bookmark).to be_instance_of(described_class)
   end
 
-  context "#initialize" do
-    it "creates a list of urls" do
-      expect(bookmark.url_list.is_a?(Array)).to eq(true)
+  context "#self.all" do
+    it "returns the list of urls" do
+      expect(Bookmark.all.is_a?(Array)).to eq(true)
+    end
+
+    it 'returns the urls passed in by the user' do
+      expect(Bookmark.all).to include("https://www.google.com/")
+      expect(Bookmark.all).to include("http://www.twitter.com/")
+      expect(Bookmark.all).to include("http://www.makersacademy.com/")
     end
   end
 end

@@ -7,7 +7,7 @@ class BookmarkManager < Sinatra::Application
   end
 
   get '/bookmark' do
-    @urls = Bookmark.new.url_list
+    @urls = Bookmark.all
     erb :bookmark
   end
 
