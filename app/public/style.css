@@ -1,0 +1,12 @@
+body {
+    font-family: "Montserrat Alternates";
+}
+
+h1 {
+    color: darkgoldenrod;
+    text-align: center;
+}
+
+#new_url {
+    width: 25%;
+}

@@ -1,4 +1,5 @@
 require_relative('../../app/app')
+require_relative '../../lib/bookmark'
 
 feature "BookmarkManager_homepage" do
   scenario "expect homepage to display Bookmark Manager to the user" do
@@ -7,17 +8,22 @@ feature "BookmarkManager_homepage" do
   end
 
   scenario 'A user can see bookmarks' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
+    Bookmark.establish_connection
 
     # Add the test data
-    connection.exec("INSERT INTO bookmarks VALUES(1, 'http://www.makersacademy.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(2, 'http://www.destroyallsoftware.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(3, 'http://www.google.com');")
+    Bookmark.add_bookmark('http://www.makersacademy.com')
+    Bookmark.add_bookmark('http://www.destroyallsoftware.com')
+    Bookmark.add_bookmark('http://www.google.com')
 
     visit('/bookmarks')
 
     expect(page).to have_content "http://www.makersacademy.com"
     expect(page).to have_content "http://www.destroyallsoftware.com"
     expect(page).to have_content "http://www.google.com"
+  end
+
+  scenario 'expect homepage to have a link called Add Bookmark' do
+    visit '/'
+    expect(page).to have_link('Add Bookmark')
   end
 end
