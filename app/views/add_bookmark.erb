@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="./style.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <section id="add_url">
       <form action="/bookmarks" method="post">
         <label for="new_url">Type in the URL: </label>
-        <input type="text" id="new_url" name="new_url" required>
+        <input type="text" id="new_url" name="new_url" placeholder="type in URL" required><br><br>
+        <label for="url_title">Type in the title of the URL: </label>
+        <input type="text" id="url_title" name="url_title" placeholder="URL title"><br><br>
         <input type="submit" value="Save">
       </form>
     </section>

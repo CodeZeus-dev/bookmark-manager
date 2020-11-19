@@ -10,3 +10,9 @@ h1 {
 #new_url {
     width: 25%;
 }
+
+#navbar_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

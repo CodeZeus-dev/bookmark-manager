@@ -4,7 +4,13 @@
 
   </head>
   <body>
-    <%= @urls %>
+    <section id="list_of_urls">
+      <ul>
+        <% @url.titles.map { |title|%>
+        <li><a href="<%= title[0] %>" target="_blank"><%= title[1] %></a></li>
+          <%} %>
+      </ul>
 
+    </section>
   </body>
 </html>

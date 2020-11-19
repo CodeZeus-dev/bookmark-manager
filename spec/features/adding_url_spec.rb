@@ -6,10 +6,16 @@ feature "Adding a Bookmark" do
     expect(page).to have_link('Add Bookmark')
   end
 
-  scenario 'expect /add_bookmark page to have text Type in the URL: ' do
+  scenario 'expect /add_bookmark page to have text Type in the URL:' do
     visit '/'
     click_link('Add Bookmark')
     expect(page).to have_content('Type in the URL:')
+  end
+
+  scenario 'expect /add_bookmark page to have text Type in the title of the URL:' do
+    visit '/'
+    click_link('Add Bookmark')
+    expect(page).to have_content('Type in the title of the URL:')
   end
 
   scenario 'expect /add_bookmark page to have a save button' do
@@ -33,6 +39,6 @@ feature "Adding a Bookmark" do
     click_button('Save')
     expect(page).to have_link('Add Bookmark')
     visit '/bookmarks'
-    expect(page).to have_content('https://www.codecademy.com/')
+    expect(page).to have_link('codecademy')
   end
 end
